@@ -6,13 +6,19 @@ Budget Dashboard is a  React.JS app that uses [Airtable](https://airtable.com/) 
 
 The focus of this project is to use React to create a beautiful dashboard. 
 
-## API and Data Sample
-
-Specify the API you are using and include a link. Show us a snippet of JSON returned by your API so we know you can access it and get the info you need
-
 ## Wireframes
 
-Upload images of your wireframes to an image hosting site or add them to an assets folder in your repo and link them here with a description of each specific wireframe.
+|                                                                       Mobile                                                                        |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------: |
+| ![Mobile](https://github.com/Henry-Cook/Budget-Dashboard/blob/master/New%20Project%20Pictures/Screen%20Shot%202020-08-01%20at%2010.31.14%20AM.png?raw=true) |
+
+|                                                                       Desktop                                                                        |
+| :--------------------------------------------------------------------------------------------------------------------------------------------------: |
+| ![desktop](https://github.com/Henry-Cook/Budget-Dashboard/blob/master/New%20Project%20Pictures/Screen%20Shot%202020-08-01%20at%2010.23.32%20AM.png?raw=true) |
+
+Made with [wireframe.cc](https://wireframe.cc/)
+
+
 
 ### MVP/PostMVP
 

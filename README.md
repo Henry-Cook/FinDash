@@ -6,6 +6,28 @@ Budget Dashboard is a  React.JS app that uses [Airtable](https://airtable.com/) 
 
 The focus of this project is to use React to create a beautiful dashboard. 
 
+## React Component Hierarchy
+
+```
+|- App
+|
+| --- Nav-bar
+| --- Title 
+| --- User Picture and Name 
+| --- Budget Manager 
+	| --- Categories 
+		| --- Bills
+		| --- Living Expenses 
+		| --- Everything Else
+| --- Budget Totals
+| --- Charts 
+	| --- Doughnut Chart
+	| --- Bar Chart
+```
+
+
+
+
 ## Wireframes
 
 |                                                                       Mobile                                                                        |

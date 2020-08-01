@@ -75,24 +75,31 @@ Made with [wireframe.cc](https://wireframe.cc/)
 
 ## Timeframes
 
-Tell us how long you anticipate spending on each area of development. Be sure to consider how many hours a day you plan to be coding and how many days you have available until presentation day.
-
-Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe. Throughout your project, keep track of your Time Invested and Actual Time and update your README regularly.
-
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
-| --- | :---: |  :---: | :---: | :---: |
-| Adding Form | H | 3hrs| 3.5hrs | 3.5hrs |
-| Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
-| Total | H | 6hrs| 5hrs | 5hrs |
+| --- | :---: | :---: | :---: | :---: |
+| Write out funcationality of components | M | 2hrs| - | - |
+| Create color scheme and choose fonts | L | 2hrs| - | - |
+| Add components and test | M | 2hrs| - | - |
+| Start with basic desktop view oriented CSS - See wireframes | M | 3hrs| - | - |
+| Create Airtable schema, add connection, test |H | 3hrs| - | - |
+| Build login/signup component with Airtable connection  | H | 3hrs| | - |
+| Add Budget creation | H | 3hrs| - | - |
+| Add Budget management after creation | H | 3hrs| - | - |
+| Add charts using the data from airtable | H | 3hrs| - | - |
+| Create user setting/profile page | M | 3hrs| - | - |
+| Confirm that all MVP requirements are met + Anything that wasn't completed| H | 3hrs| - | - |
+| Style everything, and make responsive| H | 3hr| - | - |
+|------------- Post MVPs -------------|
+| Add Dark Mode | L | 2hr| - | - |
+| Create new page with fincial data | L | 5hr| - | - |
+|------------- Post MVPs -------------| - | 40hrs| - | - |
 
 ## Code Snippet
 
 Use this section to include a brief code snippet of functionality that you are proud of and a brief description.  
 
 ```
-function reverse(string) {
-	// here is the code to reverse a string of text
-}
+// Will add once completed
 ```
 
 ## Change Log

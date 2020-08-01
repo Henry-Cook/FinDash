@@ -58,19 +58,16 @@ Made with [wireframe.cc](https://wireframe.cc/)
 	
 ## Project Schedule
 
-This schedule will be used to keep track of your progress throughout the week and align with our expectations.  
 
-You are **responsible** for scheduling time with your squad to seek approval for each deliverable by the end of the corresponding day, excluding `Saturday` and `Sunday`.
 
-|  Day | Deliverable | Status
-|---|---| ---|
-|July 10-12| Prompt / Wireframes / Priority Matrix / Timeframes | Incomplete
-|July 13| Project Approval | Incomplete
-|July 13| Core Application Structure (HTML, CSS, etc.) | Incomplete
-|July 14| Pseudocode / actual code | Incomplete
-|July 15| Initial Clickable Model  | Incomplete
-|July 16| MVP | Incomplete
-|July 17| Presentations | Incomplete
+| Day        | Deliverable                                                                                   | Status     |
+| ---------- | --------------------------------------------------------------------------------------------- | ---------- |
+| July 31 - August 2 | Prompt / Wireframes / Priority Matrix / Timeframes                                      | Incomplete   |
+| August 3    | Project approval, orgainization, component creation, Airtable connection.                        | Incomplete   |
+| August 4    | Build main functionality: signup/login, budget creation.      | Incomplete   |
+| August 5    | Add charts, settings page for profile updates, and start styling. | Incomplete   |
+| August 6    | Make responsive and complete styling, check that all MVP's are complete.   | Incomplete   |
+| August 7    | Presentations                                                                                 | Incomplete |
 
 ## Priority Matrix
 

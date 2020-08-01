@@ -40,25 +40,22 @@ The focus of this project is to use React to create a beautiful dashboard.
 
 Made with [wireframe.cc](https://wireframe.cc/)
 
+## MVP 
+* User Signup/Login.
+* Budget Manager/Creator.
+* Shows breakdown on charts.
+* Navigation bar with access to budget page and settings page.
+* Responsiveness for mobile, tablet ,  desktop  users.
 
 
-### MVP/PostMVP
-
-The functionality will then be divided into two separate lists: MPV and PostMVP.  Carefully decided what is placed into your MVP as the client will expect this functionality to be implemented upon project completion.  
-
-#### MVP 
-*These are examples only. Replace with your own MVP features.*
-
-- Find and use external api 
-- Render data on page 
-- Allow user to choose favorites 
-
-#### PostMVP  
-*These are examples only. Replace with your own Post-MVP features.*
-
-- Add second API
-- Use local storage to save user favorites
-
+## PostMVP  
+* Dark Mode 
+* Add another page to navigate to with financial data using the free [Finnhub API](https://finnhub.io/docs/api#introduction), Showing:
+	* Company News
+	* Searchable stock prices
+	* Symbol Lookup
+	
+	
 ## Project Schedule
 
 This schedule will be used to keep track of your progress throughout the week and align with our expectations.  

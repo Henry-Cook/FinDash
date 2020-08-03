@@ -96,11 +96,10 @@ Made with [wireframe.cc](https://wireframe.cc/)
 
 ## Code Snippet
 
-Use this section to include a brief code snippet of functionality that you are proud of and a brief description.  
 
 ```
 // Will add once completed
 ```
 
 ## Change Log
- Use this section to document what changes were made and the reasoning behind those changes.  
+

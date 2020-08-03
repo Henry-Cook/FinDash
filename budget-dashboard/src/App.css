@@ -1,0 +1,36 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+body {
+  height: 100%;
+  width: 100%;
+}
+div {
+  height: 100%;
+}
+.total-container {
+  display: flex;
+  flex-direction: row;
+}
+
+/* Nav-Bar */
+.nav-bar-wrapper {
+  text-align: center;
+  width: 20%;
+}
+
+/* title-bar */
+.title-bar {
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  margin: 0 0 50px 0;
+}
+
+/* main-section */
+.main-section {
+  height: 80%;
+  display: flex;
+  flex-direction: row;
+}

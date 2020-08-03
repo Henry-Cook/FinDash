@@ -5,16 +5,22 @@ import Title from "./Title";
 import ProfileBadge from "./ProfileBadge";
 import BudgetManager from "./BudgetManger";
 import Charts from "./Charts";
+import { Container } from "@material-ui/core";
 
 function App() {
   return (
-    <div>
-      <h1>Budget Dashboard</h1>
+    <div className="total-container">
       <Navbar />
-      <Title />
-      <ProfileBadge />
-      <BudgetManager />
-      <Charts />
+      <Container>
+        <div className="title-bar">
+          <Title />
+          <ProfileBadge />
+        </div>
+        <div className="main-section">
+          <BudgetManager />
+          <Charts />
+        </div>
+      </Container>
     </div>
   );
 }

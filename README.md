@@ -41,7 +41,6 @@ The focus of this project is to use React to create a beautiful dashboard.
 Made with [wireframe.cc](https://wireframe.cc/)
 
 ## MVP 
-* User Signup/Login.
 * Budget Manager/Creator.
 * Shows breakdown on charts.
 * Navigation bar with access to budget page and settings page.
@@ -49,6 +48,7 @@ Made with [wireframe.cc](https://wireframe.cc/)
 
 
 ## PostMVP  
+* User Signup/Login.
 * Dark Mode 
 * Add another page to navigate to with financial data using the free [Finnhub API](https://finnhub.io/docs/api#introduction), Showing:
 	* Company News

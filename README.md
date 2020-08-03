@@ -2,7 +2,7 @@
 
 ## Project Description
 	
-Budget Dashboard is a  React.JS app that uses [Airtable](https://airtable.com/) for a basic database connection, this allows for a simulated user authentication.  Users can very easily build budgets by adding information into the three budgeting categories: “Bills”, “Living Expenses”, and “Everything Else”.  The app will then use [react-chartjs-2  ](https://www.npmjs.com/package/react-chartjs-2)  to render graphs so that users can visualize their finances. 
+Budget Dashboard is a  React.JS app that uses [Airtable](https://airtable.com/) for a basic database connection, this allows for simulated user authentication.  Users can very easily build budgets by adding information into the three budgeting categories: “Bills”, “Living Expenses”, and “Everything Else”.  The app will then use [react-chartjs-2  ](https://www.npmjs.com/package/react-chartjs-2)  to render graphs so that users can visualize their finances. 
 
 The focus of this project is to use React to create a beautiful dashboard. 
 

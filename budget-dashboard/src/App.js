@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
 import Navbar from "./Navbar";
-import Title from "./Title";
 import ProfileBadge from "./ProfileBadge";
 import BudgetManager from "./BudgetManger";
 import Charts from "./Charts";
@@ -13,7 +12,6 @@ function App() {
       <Navbar />
       <Container>
         <div className="title-bar">
-          <Title />
           <ProfileBadge />
         </div>
         <div className="main-section">

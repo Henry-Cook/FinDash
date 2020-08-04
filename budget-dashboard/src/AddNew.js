@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, createContext } from "react";
 import axios from "axios";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
@@ -9,19 +9,9 @@ import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import AddIcon from "@material-ui/icons/Add";
+const _ = require("lodash");
 
 function AddNew(props) {
-  const [input1, updateInput1] = useState("");
-  const [input2, updateInput2] = useState("");
-  const [input3, updateInput3] = useState("");
-  const [input4, updateInput4] = useState("");
-  const [whichRecord, updateWhichRecord] = useState("");
-
-  const handleChange = (e, index) => {
-    console.log(e.target.value);
-    console.log(index);
-  };
-
   const useStyles = makeStyles((theme) => ({
     new: {
       marginTop: "20px",
@@ -40,7 +30,6 @@ function AddNew(props) {
   }));
 
   const classes = useStyles();
-  let counter = 0;
   return (
     <>
       <Accordion className={classes.new}>
@@ -52,14 +41,17 @@ function AddNew(props) {
           <Typography>Add New Item</Typography>
         </AccordionSummary>
         <AccordionDetails className={classes.details}>
-          <form className={classes.newForm}>
+          <form className={classes.newForm} onSubmit={props.getData}>
             {props.data.map((item) => {
               return (
                 <TextField
                   id="standard-basic"
                   label={item}
                   onChange={(e) => {
-                    handleChange(e, item);
+                    props.handle(e, item);
+                  }}
+                  onBlur={() => {
+                    props.blur();
                   }}
                 />
               );
@@ -68,6 +60,7 @@ function AddNew(props) {
               className={classes.button}
               variant="contained"
               color="primary"
+              type="submit"
             >
               Add
             </Button>

@@ -5,6 +5,7 @@ import ProfileBadge from "./ProfileBadge";
 import BudgetManager from "./BudgetManger";
 import Charts from "./Charts";
 import { Container } from "@material-ui/core";
+// import { InputContext } from "./InputContext";
 
 function App() {
   return (
@@ -15,7 +16,9 @@ function App() {
           <ProfileBadge />
         </div>
         <div className="main-section">
+          {/* <InputContext.provider value="hey"> */}
           <BudgetManager />
+          {/* </InputContext.provider> */}
           <Charts />
         </div>
       </Container>

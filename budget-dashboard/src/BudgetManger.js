@@ -1,20 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Paper, Tabs, Tab, Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-// import BudgetTotals from "./BudgetTotals";
 import BudgetTabs from "./BudgetTabs";
 import axios from "axios";
 import BudgetTable from "./BudgetTable";
 import AddNew from "./AddNew";
+import { update } from "lodash";
+const _ = require("lodash");
 
 function BudgetManger() {
   const [bills, setBills] = useState([]);
   const [expenses, setExpenses] = useState([]);
   const [everythingElse, setEverythingElse] = useState([]);
-  const [newBill, setNewBill] = useState({});
-  const [newExpense, setNewExpense] = useState({});
-  const [newEverythingElse, setNewEverythingElse] = useState({});
-  const [postRequestTarget, setpostRequestTarget] = useState("");
+  const [newRecord, setNewRecord] = useState({});
+  let [postRequestTarget, setPostRequestTarget] = useState("");
   const [selectedTab, setSelectedTab] = useState(0);
   const billsNames = ["Bill Name", "Amount Due", "Merchant", "Date Due"];
   const expensesNames = ["Expense Name", "Amount Needed", "Date Needed By"];
@@ -36,28 +35,114 @@ function BudgetManger() {
     },
   }));
 
-  const getDataFromAddNew = () => {};
+  useEffect(() => {
+    const addingNewRecord = async () => {
+      const res = await axios.post(
+        `https://api.airtable.com/v0/app3uPKaYM48ftzIO/${postRequestTarget}`,
 
-  const dataForAddNew = () => {
-    if (selectedTab === 0) {
-      return <AddNew data={billsNames} getData={getDataFromAddNew} />;
-    } else if (selectedTab === 1) {
-      return <AddNew data={expensesNames} getData={getDataFromAddNew} />;
-    } else {
-      return <AddNew data={everyThingElseNames} getData={getDataFromAddNew} />;
+        newRecord,
+
+        {
+          headers: {
+            Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_KEY}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log(res);
+    };
+    addingNewRecord();
+  }, [postRequestTarget]);
+
+  let changeObj = {};
+  let arrForInput = [];
+
+  const handleChange = (e, index) => {
+    changeObj = {
+      typedIn: e.target.value,
+      category: index,
+    };
+    console.log(changeObj);
+  };
+
+  const handleBlur = () => {
+    if (!_.isEmpty(changeObj)) {
+      arrForInput.push(changeObj);
+    }
+    changeObj = {};
+    console.log(arrForInput);
+  };
+
+  const dataFromAddNew = async (e) => {
+    e.preventDefault();
+
+    if (arrForInput[0].category === "Bill Name") {
+      const record = {
+        fields: {
+          name: `${arrForInput[0].typedIn}`,
+          amount: `${arrForInput[1].typedIn}`,
+          whomTo: `${arrForInput[2].typedIn}`,
+          dueDate: `${arrForInput[3].typedIn}`,
+          completed: "false",
+        },
+      };
+      setNewRecord(record);
+      setPostRequestTarget("Bills");
+    } else if (arrForInput[0].category === "Expense Name") {
+      console.log(parseInt(arrForInput[1].typedIn));
+      const record = {
+        fields: {
+          name: `${arrForInput[0].typedIn}`,
+          amount: `${arrForInput[1].typedIn}`,
+          dateNeededBy: `${arrForInput[2].typedIn}`,
+          completed: "false",
+        },
+      };
+      setNewRecord(record);
+      setPostRequestTarget("Expenses");
+    } else if (arrForInput[0].category === "Name") {
+      const record = {
+        fields: {
+          name: `${arrForInput[0].typedIn}`,
+          amount: `${arrForInput[1].typedIn}`,
+          dateNeededBy: `${arrForInput[2].typedIn}`,
+          completed: "false",
+        },
+      };
+      setNewRecord(record);
+      setPostRequestTarget("everything");
     }
   };
 
-  const addingNewRecord = async () => {
-    const newRecord = axios.post(
-      `https://api.airtable.com/v0/app3uPKaYM48ftzIO/${postRequestTarget}`,
-      {
-        headers: {
-          Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_KEY}`,
-          "Content-Type": "application/json",
-        },
-      }
-    );
+  const dataForAddNew = () => {
+    if (selectedTab === 0) {
+      return (
+        <AddNew
+          data={billsNames}
+          getData={dataFromAddNew}
+          handle={handleChange}
+          blur={handleBlur}
+        />
+      );
+    } else if (selectedTab === 1) {
+      return (
+        <AddNew
+          data={expensesNames}
+          getData={dataFromAddNew}
+          handle={handleChange}
+          blur={handleBlur}
+        />
+      );
+    } else {
+      return (
+        <AddNew
+          data={everyThingElseNames}
+          getData={dataFromAddNew}
+          handle={handleChange}
+          blur={handleBlur}
+        />
+      );
+    }
   };
 
   const classes = useStyles();

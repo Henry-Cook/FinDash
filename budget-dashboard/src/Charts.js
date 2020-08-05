@@ -22,7 +22,13 @@ function Charts(props) {
           {
             label: "Bills",
             data: cost,
-            backgroundColor: ["green", "blue", "red", "Purple"],
+            backgroundColor: [
+              "#8bf0ba",
+              "#0e0fed",
+              "#94f0f1",
+              "#f2b1d8",
+              "#ffdc6a",
+            ],
           },
         ],
       },
@@ -44,7 +50,13 @@ function Charts(props) {
           {
             label: "Bills",
             data: cost,
-            backgroundColor: ["green", "blue", "red", "Purple"],
+            backgroundColor: [
+              "#8bf0ba",
+              "#0e0fed",
+              "#94f0f1",
+              "#f2b1d8",
+              "#ffdc6a",
+            ],
           },
         ],
       },
@@ -66,7 +78,13 @@ function Charts(props) {
           {
             label: "Bills",
             data: cost,
-            backgroundColor: ["green", "blue", "red", "Purple"],
+            backgroundColor: [
+              "#8bf0ba",
+              "#0e0fed",
+              "#94f0f1",
+              "#f2b1d8",
+              "#ffdc6a",
+            ],
           },
         ],
       },
@@ -95,8 +113,7 @@ function Charts(props) {
       height: "90%",
       justifyContent: "center",
       alignItems: "center",
-      marginTop: 0,
-      marginLeft: 50,
+      margin: "20px 20px 0 20px",
     },
   }));
 

@@ -1,9 +1,10 @@
 import React from "react";
+import ProfileBadge from "./ProfileBadge";
 
 function Title() {
   return (
     <>
-      <h1>Title</h1>
+      <h1 className="title">Henry Cook</h1>
     </>
   );
 }

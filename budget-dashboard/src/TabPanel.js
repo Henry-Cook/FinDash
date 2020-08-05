@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
-import { makeStyles } from "@material-ui/core/styles";
 import EqualizerIcon from "@material-ui/icons/Equalizer";
 import SettingsIcon from "@material-ui/icons/Settings";
 import TrendingUpIcon from "@material-ui/icons/TrendingUp";
 import { Link } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 
 function TabPanel() {
   const [selectedTab, setSelectedTab] = useState(0);
@@ -14,30 +12,28 @@ function TabPanel() {
     setSelectedTab(newValue);
   };
 
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      flexGrow: 1,
-      display: "flex",
-      height: 500,
-      justifyContent: "center",
-      alignItems: "center",
-    },
-    tabs: {
-      display: "flex",
-      flexDirection: "row",
-    },
-  }));
-
-  const classes = useStyles();
+  const handleBillClick = () => {
+    return <Link to="/" />;
+  };
 
   return (
-    <div className={classes.root}>
-      <Tabs orientation="vertical" value={selectedTab} onChange={handleChange}>
-        <Tab icon={<EqualizerIcon />} label="Budget Manager"></Tab>
-        <Tab icon={<TrendingUpIcon />} label="Market Watch" />
-        <Tab icon={<SettingsIcon />} label="Settings" />
-      </Tabs>
-    </div>
+    <>
+      <Link to="/" onClick={handleBillClick}>
+        <Button startIcon={<EqualizerIcon />} color="primary">
+          Budget Manager
+        </Button>
+      </Link>
+      <Link label="Market Watch" to="/marketwatch">
+        <Button startIcon={<TrendingUpIcon />} color="primary">
+          Market Watch
+        </Button>
+      </Link>
+      <Link to="/settings" label="Settings">
+        <Button startIcon={<SettingsIcon />} color="primary">
+          Settings
+        </Button>
+      </Link>
+    </>
   );
 }
 

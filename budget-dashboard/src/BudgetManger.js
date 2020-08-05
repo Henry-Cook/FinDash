@@ -27,6 +27,7 @@ function BudgetManger(props) {
       height: "100%",
       alignItem: "center",
       textAlign: "center",
+      margin: "20px 0 0 20px",
     },
     tabs: {
       display: "flex",

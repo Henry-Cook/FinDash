@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Popular from "./Popular";
 import { Paper, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import axios from "axios";
@@ -10,13 +11,18 @@ function MarketWatch() {
   const [userInput, setUserInput] = useState("");
   const [search, setSearch] = useState("AAPL");
   const [stockPrice, setStockPrice] = useState({});
+  const [companyData, setCompanyData] = useState({});
 
   useEffect(() => {
     const apiCall = async () => {
       const data = await axios(
         `https://finnhub.io/api/v1/quote?symbol=${search}&token=${process.env.REACT_APP_FINNHUB_KEY}`
       );
-      setStockPrice(stockPrice);
+      setStockPrice(data);
+      const companyData = await axios(
+        `https://finnhub.io/api/v1/stock/profile2?symbol=${search}&token=${process.env.REACT_APP_FINNHUB_KEY}`
+      );
+      setCompanyData(companyData);
     };
     apiCall();
   }, [search]);
@@ -35,8 +41,9 @@ function MarketWatch() {
       display: "flex",
       flexDirection: "column",
       width: "95%",
-      height: "100%",
       alignItems: "center",
+      margin: "20px",
+      paddingBottom: "50px",
     },
     input: {
       width: "30%",
@@ -52,6 +59,13 @@ function MarketWatch() {
       flexDirection: "row",
       width: "100%",
       justifyContent: "center",
+    },
+    divStyles: {
+      display: "flex",
+      flexDirection: "row",
+      width: "100%",
+      justifyContent: "center",
+      marginTop: "40px",
     },
   }));
 
@@ -77,8 +91,19 @@ function MarketWatch() {
             Search
           </Button>
         </form>
-
-        <SearchResults symbol={search} data={stockPrice} />
+        <div className={classes.divStyles}>
+          {!_.isEmpty(stockPrice) && !_.isEmpty(companyData) && (
+            <>
+              <SearchResults
+                symbol={search}
+                data={stockPrice}
+                search={search}
+                companyData={companyData}
+              />
+              <Popular />
+            </>
+          )}
+        </div>
       </Paper>
     </>
   );

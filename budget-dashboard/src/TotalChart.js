@@ -40,7 +40,13 @@ function TotalChart(props) {
         {
           label: "Total",
           data: [billTotal, expensesTotal, everythingElseTotal],
-          backgroundColor: ["green", "blue", "red", "Purple"],
+          backgroundColor: [
+            "#8bf0ba",
+            "#0e0fed",
+            "#94f0f1",
+            "#f2b1d8",
+            "#ffdc6a",
+          ],
         },
       ],
     },

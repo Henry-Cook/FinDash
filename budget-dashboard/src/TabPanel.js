@@ -5,11 +5,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import EqualizerIcon from "@material-ui/icons/Equalizer";
 import SettingsIcon from "@material-ui/icons/Settings";
 import TrendingUpIcon from "@material-ui/icons/TrendingUp";
+import { Link } from "react-router-dom";
 
 function TabPanel() {
   const [selectedTab, setSelectedTab] = useState(0);
 
-  const handleChange = (newValue) => {
+  const handleChange = (event, newValue) => {
     setSelectedTab(newValue);
   };
 
@@ -32,7 +33,7 @@ function TabPanel() {
   return (
     <div className={classes.root}>
       <Tabs orientation="vertical" value={selectedTab} onChange={handleChange}>
-        <Tab icon={<EqualizerIcon />} label="Budget Manager" />
+        <Tab icon={<EqualizerIcon />} label="Budget Manager"></Tab>
         <Tab icon={<TrendingUpIcon />} label="Market Watch" />
         <Tab icon={<SettingsIcon />} label="Settings" />
       </Tabs>

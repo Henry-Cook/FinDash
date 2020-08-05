@@ -13,7 +13,7 @@ function BudgetManger(props) {
   const [expenses, setExpenses] = useState([]);
   const [everythingElse, setEverythingElse] = useState([]);
   const [newRecord, setNewRecord] = useState({});
-  let [postRequestTarget, setPostRequestTarget] = useState("");
+  const [postRequestTarget, setPostRequestTarget] = useState("");
   const [selectedTab, setSelectedTab] = useState(0);
   const billsNames = ["Bill Name", "Amount Due", "Merchant", "Date Due"];
   const expensesNames = ["Expense Name", "Amount Needed", "Date Needed By"];

@@ -5,6 +5,8 @@ import ProfileBadge from "./ProfileBadge";
 import BudgetManager from "./BudgetManger";
 import Charts from "./Charts";
 import { Container } from "@material-ui/core";
+import { Route } from "react-router-dom";
+import MarketWatch from "./MarketWatch";
 
 function App() {
   const [bills, setBills] = useState();
@@ -29,18 +31,24 @@ function App() {
         <div className="title-bar">
           <ProfileBadge />
         </div>
-        <div className="main-section">
-          <BudgetManager
-            sendData={addDataFromBudget}
-            sendTab={selectedTabUpdate}
-          />
-          <Charts
-            bills={bills}
-            expenses={expenses}
-            everythingElse={everythingElse}
-            tab={selectedTab}
-          />
-        </div>
+        <Route path="/" exact>
+          <div className="main-section">
+            <BudgetManager
+              sendData={addDataFromBudget}
+              sendTab={selectedTabUpdate}
+            />
+            <Charts
+              bills={bills}
+              expenses={expenses}
+              everythingElse={everythingElse}
+              tab={selectedTab}
+            />
+          </div>
+        </Route>
+
+        <Route path="/marketwatch">
+          <MarketWatch />
+        </Route>
       </Container>
     </div>
   );

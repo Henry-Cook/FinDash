@@ -58,7 +58,7 @@ Made with [wireframe.cc](https://wireframe.cc/)
 | ------------------ | ------------------------------------------------------------------------- | ---------- |
 | July 31 - August 2 | Prompt / Wireframes / Priority Matrix / Timeframes                        | Complete   |
 | August 3           | Project approval, orgainization, component creation, Airtable connection. | Complete   |
-| August 4           | Build main functionality: budget creation.                                | Incomplete |
+| August 4           | Build main functionality: budget creation.                                | Complete   |
 | August 5           | Add charts, settings page for profile updates, and start styling.         | Incomplete |
 | August 6           | Make responsive and complete styling, check that all MVP's are complete.  | Incomplete |
 | August 7           | Presentations                                                             | Incomplete |

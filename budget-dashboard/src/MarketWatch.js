@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Popular from "./Popular";
+import MarketChart from "./MarketChart";
 import { Paper, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import axios from "axios";
@@ -43,7 +44,7 @@ function MarketWatch() {
       width: "95%",
       alignItems: "center",
       margin: "20px",
-      paddingBottom: "50px",
+      paddingBottom: "5px",
     },
     input: {
       width: "30%",
@@ -104,6 +105,9 @@ function MarketWatch() {
             </>
           )}
         </div>
+        {!_.isEmpty(stockPrice) && !_.isEmpty(companyData) && (
+          <MarketChart data={stockPrice} />
+        )}
       </Paper>
     </>
   );

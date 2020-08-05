@@ -50,11 +50,30 @@ function TotalChart(props) {
         },
       ],
     },
+    options: {
+      title: {
+        display: true,
+        text: "Total",
+        fontSize: 25,
+      },
+      legend: {
+        display: true,
+        position: "bottom",
+        labels: {
+          fontColor: "#000000",
+        },
+      },
+    },
   };
 
   return (
     <>
-      <Doughnut data={data.data} width={100} height={100} />
+      <Doughnut
+        data={data.data}
+        width={100}
+        height={100}
+        options={data.options}
+      />
     </>
   );
 }

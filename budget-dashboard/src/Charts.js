@@ -32,6 +32,20 @@ function Charts(props) {
           },
         ],
       },
+      options: {
+        title: {
+          display: true,
+          text: "Bills",
+          fontSize: 25,
+        },
+        legend: {
+          display: true,
+          position: "bottom",
+          labels: {
+            fontColor: "#000000",
+          },
+        },
+      },
     });
   };
 
@@ -48,7 +62,7 @@ function Charts(props) {
         labels: labels,
         datasets: [
           {
-            label: "Bills",
+            label: "Expenses",
             data: cost,
             backgroundColor: [
               "#8bf0ba",
@@ -59,6 +73,20 @@ function Charts(props) {
             ],
           },
         ],
+      },
+      options: {
+        title: {
+          display: true,
+          text: "Expenses",
+          fontSize: 25,
+        },
+        legend: {
+          display: true,
+          position: "bottom",
+          labels: {
+            fontColor: "#000000",
+          },
+        },
       },
     });
   };
@@ -88,6 +116,20 @@ function Charts(props) {
           },
         ],
       },
+      options: {
+        title: {
+          display: true,
+          text: "EveryThing Else",
+          fontSize: 25,
+        },
+        legend: {
+          display: true,
+          position: "bottom",
+          labels: {
+            fontColor: "#000000",
+          },
+        },
+      },
     });
   };
 
@@ -110,10 +152,10 @@ function Charts(props) {
   const useStyles = makeStyles((theme) => ({
     chartContainer: {
       width: "30%",
-      height: "90%",
+      // height: "90%",
       justifyContent: "center",
       alignItems: "center",
-      margin: "20px 20px 0 20px",
+      margin: "20px 20px 20px 20px",
     },
   }));
 
@@ -122,7 +164,12 @@ function Charts(props) {
     return (
       <>
         <Paper className={classes.chartContainer} elevation={2}>
-          <Doughnut data={data.data} width={100} height={100} />
+          <Doughnut
+            data={data.data}
+            width={100}
+            height={100}
+            options={data.options}
+          />
           {props.everythingElse !== undefined ? (
             <TotalChart data={propHolder} />
           ) : (

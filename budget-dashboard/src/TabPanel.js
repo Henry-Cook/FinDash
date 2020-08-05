@@ -9,7 +9,7 @@ import TrendingUpIcon from "@material-ui/icons/TrendingUp";
 function TabPanel() {
   const [selectedTab, setSelectedTab] = useState(0);
 
-  const handleChange = (event, newValue) => {
+  const handleChange = (newValue) => {
     setSelectedTab(newValue);
   };
 

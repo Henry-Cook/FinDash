@@ -7,7 +7,6 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import AddNew from "./AddNew";
 
 const useStyles = makeStyles({
   table: {
@@ -23,16 +22,16 @@ function billsDisplay(data) {
     <>
       {data.data.map((item) => (
         <TableRow key={item.fields.id}>
-          <TableCell component="th" scope="row">
+          <TableCell key={item.fields.id} component="th" scope="row">
             {item.fields.name}
           </TableCell>
-          <TableCell component="th" scope="row">
+          <TableCell key={item.fields.id} component="th" scope="row">
             ${item.fields.amount}
           </TableCell>
-          <TableCell component="th" scope="row">
+          <TableCell key={item.fields.id} component="th" scope="row">
             {item.fields.whomTo}
           </TableCell>
-          <TableCell component="th" scope="row">
+          <TableCell key={item.fields.id} component="th" scope="row">
             {item.fields.dueDate}
           </TableCell>
         </TableRow>
@@ -43,13 +42,13 @@ function billsDisplay(data) {
 function displayTheRest(data) {
   return data.data.map((item) => (
     <TableRow key={item.fields.id}>
-      <TableCell component="th" scope="row">
+      <TableCell key={item.fields.id} component="th" scope="row">
         {item.fields.name}
       </TableCell>
-      <TableCell component="th" scope="row">
+      <TableCell key={item.fields.id} component="th" scope="row">
         ${item.fields.amount}
       </TableCell>
-      <TableCell component="th" scope="row">
+      <TableCell key={item.fields.id} component="th" scope="row">
         {item.fields.dateNeededBy}
       </TableCell>
     </TableRow>
@@ -65,7 +64,7 @@ function BudgetTable(props) {
             <TableHead>
               <TableRow>
                 {props.header.map((item) => (
-                  <TableCell>{item}</TableCell>
+                  <TableCell key={item}>{item}</TableCell>
                 ))}
               </TableRow>
             </TableHead>

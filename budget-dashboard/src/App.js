@@ -1,13 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Navbar from "./Navbar";
 import ProfileBadge from "./ProfileBadge";
 import BudgetManager from "./BudgetManger";
 import Charts from "./Charts";
 import { Container } from "@material-ui/core";
-// import { InputContext } from "./InputContext";
 
 function App() {
+  const [bills, setBills] = useState();
+  const [expenses, setExpenses] = useState();
+  const [everythingElse, setEverythingElse] = useState();
+  const [selectedTab, setSelectedTab] = useState(0);
+
+  const addDataFromBudget = (dataOne, dataTwo, dataThree) => {
+    setBills(dataOne);
+    setExpenses(dataTwo);
+    setEverythingElse(dataThree);
+  };
+
+  const selectedTabUpdate = (tab) => {
+    setSelectedTab(tab);
+  };
+
   return (
     <div className="total-container">
       <Navbar />
@@ -16,10 +30,16 @@ function App() {
           <ProfileBadge />
         </div>
         <div className="main-section">
-          {/* <InputContext.provider value="hey"> */}
-          <BudgetManager />
-          {/* </InputContext.provider> */}
-          <Charts />
+          <BudgetManager
+            sendData={addDataFromBudget}
+            sendTab={selectedTabUpdate}
+          />
+          <Charts
+            bills={bills}
+            expenses={expenses}
+            everythingElse={everythingElse}
+            tab={selectedTab}
+          />
         </div>
       </Container>
     </div>

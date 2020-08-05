@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Paper, Tabs, Tab, Container } from "@material-ui/core";
+import React, { useState, useEffect } from "react";
+import { Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import BudgetTabs from "./BudgetTabs";
 import axios from "axios";
 import BudgetTable from "./BudgetTable";
 import AddNew from "./AddNew";
-import { update } from "lodash";
+import BudgetTotals from "./BudgetTotals";
 const _ = require("lodash");
 
-function BudgetManger() {
+function BudgetManger(props) {
   const [bills, setBills] = useState([]);
   const [expenses, setExpenses] = useState([]);
   const [everythingElse, setEverythingElse] = useState([]);
@@ -176,20 +176,38 @@ function BudgetManger() {
       setBills(billsData.data.records);
       setExpenses(expensesData.data.records);
       setEverythingElse(everyThingElseData.data.records);
+      props.sendData(
+        billsData.data.records,
+        expensesData.data.records,
+        everyThingElseData.data.records
+      );
     };
     apiCall();
-  }, []);
+  }, [postRequestTarget]);
+
+  props.sendTab(selectedTab);
 
   return (
     <>
       <Paper className={classes.paper} elevation={2}>
         <BudgetTabs changeCategory={setSelectedTab} />
-        {selectedTab === 0 && <BudgetTable data={bills} header={billsNames} />}
+        {selectedTab === 0 && (
+          <>
+            <BudgetTable data={bills} header={billsNames} />
+            <BudgetTotals data={bills} />
+          </>
+        )}
         {selectedTab === 1 && (
-          <BudgetTable data={expenses} header={expensesNames} />
+          <>
+            <BudgetTable data={expenses} header={expensesNames} />
+            <BudgetTotals data={expenses} />
+          </>
         )}
         {selectedTab === 2 && (
-          <BudgetTable data={everythingElse} header={everyThingElseNames} />
+          <>
+            <BudgetTable data={everythingElse} header={everyThingElseNames} />
+            <BudgetTotals data={everythingElse} />
+          </>
         )}
 
         {dataForAddNew()}

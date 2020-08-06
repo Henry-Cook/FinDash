@@ -15,11 +15,6 @@ function AddNew(props) {
       borderTopRightRadius: "0%",
       borderTopLeftRadius: "0%",
     },
-    inputDirection: {
-      display: "flex",
-      flexDirection: "row",
-      margin: "0 auto",
-    },
     inputs: {
       margin: "0 5px 0 5px",
     },
@@ -29,7 +24,7 @@ function AddNew(props) {
   return (
     <>
       <form className={classes.newForm} onSubmit={props.getData}>
-        <div className={classes.inputDirection}>
+        <div className="inputDirection">
           {props.data.map((item) => {
             return (
               <TextField

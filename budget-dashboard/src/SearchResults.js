@@ -8,10 +8,14 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import { Paper, Tab } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 const _ = require("lodash");
 
 function SearchResults(props) {
   const [prices, setPrices] = useState({});
+  const matches = useMediaQuery("(max-width:850px)");
+  const nextPoint = useMediaQuery("(max-width:500px)");
+  const thirdPoint = useMediaQuery("(max-width:600px)");
 
   useEffect(() => {
     setPrices(props.data.data);
@@ -21,7 +25,7 @@ function SearchResults(props) {
     paper: {
       display: "flex",
       flexDirection: "column",
-      width: "80",
+      width: matches === true ? "80%" : "80",
       alignItem: "center",
       textAlign: "center",
       marginRight: "20px",
@@ -29,7 +33,7 @@ function SearchResults(props) {
     table: {
       display: "flex",
       flexDirection: "column",
-      width: "100%",
+      minWidth: 50,
       alignItem: "center",
       textAlign: "center",
     },
@@ -46,30 +50,54 @@ function SearchResults(props) {
       <Paper className={classes.paper} elevation={2}>
         <CompanyDetails data={props.companyData} />
         <TableContainer component={classes.table}>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell>Current</TableCell>
-                <TableCell>High</TableCell>
-                <TableCell>Low</TableCell>
-                <TableCell>Open</TableCell>
-                <TableCell>Previous Close</TableCell>
-              </TableRow>
-            </TableHead>
+          <Table minWidth="50">
+            {/* <TableHead> */}
+            <TableRow>
+              {nextPoint === false && (
+                <>
+                  <TableCell align="center">Current</TableCell>
+                  <TableCell align="center">High</TableCell>
+                  <TableCell align="center">Low</TableCell>
+                  <TableCell align="center">Open</TableCell>
+                  {thirdPoint === false && (
+                    <TableCell align="center">Previous Close</TableCell>
+                  )}
+                </>
+              )}
+              {nextPoint === true && (
+                <>
+                  <TableCell align="center">Current Price</TableCell>
+                </>
+              )}
+            </TableRow>
+            {/* </TableHead> */}
             <TableBody>
               <TableRow>
                 {!_.isEmpty(prices) && (
                   <>
-                    <TableCell align="right">${prices.c}</TableCell>
-                    <TableCell align="right">${prices.h}</TableCell>
-                    <TableCell align="right">${prices.l}</TableCell>
-                    <TableCell align="right">${prices.o}</TableCell>
-                    <TableCell align="right">${prices.pc}</TableCell>
+                    {nextPoint === false && (
+                      <>
+                        <TableCell align="center">${prices.c}</TableCell>
+                        <TableCell align="center">${prices.h}</TableCell>
+                        <TableCell align="center">${prices.l}</TableCell>
+                        <TableCell align="center">${prices.o}</TableCell>
+                        {thirdPoint === false && (
+                          <TableCell align="center">${prices.pc}</TableCell>
+                        )}
+                      </>
+                    )}
+                    {nextPoint === true && (
+                      <>
+                        <TableCell align="center">${prices.c}</TableCell>
+                      </>
+                    )}
                   </>
                 )}
               </TableRow>
             </TableBody>
           </Table>
+
+          {nextPoint === true && <></>}
         </TableContainer>
       </Paper>
     </>

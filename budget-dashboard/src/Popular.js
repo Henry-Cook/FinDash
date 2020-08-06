@@ -1,16 +1,19 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Paper } from "@material-ui/core";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 function Popular() {
+  const matches = useMediaQuery("(max-width:850px)");
   const useStyles = makeStyles((theme) => ({
     paper: {
       display: "flex",
       flexDirection: "column",
-      width: "20%",
+      width: matches === true ? "50%" : "20%",
       alignItems: "center",
       padding: "10px",
-      // marginTop: "20px",
+      marginTop: matches === true ? "20px" : "0",
+      marginBottom: matches === true ? "20px" : "0",
     },
     title: {
       fontSize: "20spx",

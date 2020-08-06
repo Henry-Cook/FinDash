@@ -3,8 +3,11 @@ import { Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { Doughnut } from "react-chartjs-2";
 import TotalChart from "./TotalChart";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 function Charts(props) {
+  const matches = useMediaQuery("(max-width:850px)");
+
   let propHolder = props;
   let data;
   const gatherBills = () => {
@@ -151,11 +154,19 @@ function Charts(props) {
 
   const useStyles = makeStyles((theme) => ({
     chartContainer: {
-      width: "30%",
+      display: "flex",
+      flexDirection: matches === true ? "row" : "column",
+      width: matches === true ? "90%" : "30%",
       // height: "90%",
       justifyContent: "center",
       alignItems: "center",
-      margin: "20px 20px 20px 20px",
+      margin: matches === true ? "0 auto" : "20px 20px 20px 20px",
+    },
+    chart: {
+      width: matches === true ? "40%" : "80%",
+      justifyContent: "center",
+      alignItems: "center",
+      marginTop: "10px",
     },
   }));
 
@@ -164,12 +175,27 @@ function Charts(props) {
     return (
       <>
         <Paper className={classes.chartContainer} elevation={2}>
-          <Doughnut
-            data={data.data}
-            width={100}
-            height={100}
-            options={data.options}
-          />
+          {matches === true && (
+            <>
+              <div className={classes.chart}>
+                <Doughnut
+                  data={data.data}
+                  width={100}
+                  height={100}
+                  options={data.options}
+                />
+              </div>
+            </>
+          )}
+          {matches !== true && (
+            <Doughnut
+              data={data.data}
+              width={100}
+              height={100}
+              options={data.options}
+            />
+          )}
+
           {props.everythingElse !== undefined ? (
             <TotalChart data={propHolder} />
           ) : (

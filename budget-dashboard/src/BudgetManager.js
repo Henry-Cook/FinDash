@@ -6,9 +6,10 @@ import axios from "axios";
 import BudgetTable from "./BudgetTable";
 import AddNew from "./AddNew";
 import BudgetTotals from "./BudgetTotals";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 const _ = require("lodash");
 
-function BudgetManger(props) {
+function BudgetManager(props) {
   const [bills, setBills] = useState([]);
   const [expenses, setExpenses] = useState([]);
   const [everythingElse, setEverythingElse] = useState([]);
@@ -18,16 +19,19 @@ function BudgetManger(props) {
   const billsNames = ["Bill Name", "Amount Due", "Merchant", "Date Due"];
   const expensesNames = ["Expense Name", "Amount Needed", "Date Needed By"];
   const everyThingElseNames = ["Name", "Amount", "Date"];
+  const matches = useMediaQuery("(max-width:850px)");
+  const nextPoint = useMediaQuery("(max-width:650px)");
 
   const useStyles = makeStyles((theme) => ({
     paper: {
       display: "flex",
       flexDirection: "column",
-      width: "70%",
+      width: matches === true ? "95%" : "70%",
       height: "100%",
       alignItem: "center",
       textAlign: "center",
-      margin: "20px 0 0 20px",
+      marginTop: nextPoint === true ? "100px" : "20px",
+      marginLeft: matches === true ? "0" : "20px",
     },
     tabs: {
       display: "flex",
@@ -63,7 +67,6 @@ function BudgetManger(props) {
       typedIn: e.target.value,
       category: index,
     };
-    console.log(changeObj);
   };
 
   const handleBlur = () => {
@@ -217,4 +220,4 @@ function BudgetManger(props) {
   );
 }
 
-export default BudgetManger;
+export default BudgetManager;

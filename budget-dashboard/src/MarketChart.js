@@ -1,14 +1,15 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
 import { makeStyles } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 function MarketChart(props) {
-  console.log(props);
   let previousClose = props.data.data.pc;
   let open = props.data.data.o;
   let high = props.data.data.h;
   let low = props.data.data.l;
   let current = props.data.data.c;
+  const matches = useMediaQuery("(max-width:850px)");
 
   const data = {
     data: {
@@ -45,8 +46,9 @@ function MarketChart(props) {
 
   const useStyles = makeStyles((theme) => ({
     chartContainer: {
-      width: "45%",
-      justifyContent: "center",
+      display: "flex",
+      width: matches === true ? "65%" : "45%",
+      // justifyContent: "center",
       alignItems: "center",
       marginTop: "10px",
     },

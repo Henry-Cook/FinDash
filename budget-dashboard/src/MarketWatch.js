@@ -6,6 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import axios from "axios";
 import TextField from "@material-ui/core/TextField";
 import SearchResults from "./SearchResults";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 const _ = require("lodash");
 
 function MarketWatch() {
@@ -13,6 +14,8 @@ function MarketWatch() {
   const [search, setSearch] = useState("AAPL");
   const [stockPrice, setStockPrice] = useState({});
   const [companyData, setCompanyData] = useState({});
+  const matches = useMediaQuery("(max-width:850px)");
+  const nextPoint = useMediaQuery("(max-width:650px)");
 
   useEffect(() => {
     const apiCall = async () => {
@@ -43,7 +46,7 @@ function MarketWatch() {
       flexDirection: "column",
       width: "95%",
       alignItems: "center",
-      margin: "20px",
+      margin: nextPoint === true ? "100px auto" : "20px auto",
       paddingBottom: "5px",
     },
     input: {
@@ -63,9 +66,10 @@ function MarketWatch() {
     },
     divStyles: {
       display: "flex",
-      flexDirection: "row",
+      flexDirection: matches === true ? "column" : "row",
       width: "100%",
       justifyContent: "center",
+      alignItems: "center",
       marginTop: "40px",
     },
   }));
@@ -105,9 +109,9 @@ function MarketWatch() {
             </>
           )}
         </div>
-        {!_.isEmpty(stockPrice) && !_.isEmpty(companyData) && (
-          <MarketChart data={stockPrice} />
-        )}
+        {!_.isEmpty(stockPrice) &&
+          !_.isEmpty(companyData) &&
+          matches === false && <MarketChart data={stockPrice} />}
       </Paper>
     </>
   );

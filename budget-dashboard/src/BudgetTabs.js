@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Paper, Tabs, Tab, Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 function BudgetTabs(props) {
   const [selectedTab, setSelectedTab] = useState(0);
+  const matches = useMediaQuery("(max-width:850px)");
 
   const handleChange = (event, newValue) => {
     setSelectedTab(newValue);
@@ -14,7 +16,9 @@ function BudgetTabs(props) {
     tabs: {
       display: "flex",
       flexDirection: "row",
-      height: "20px",
+    },
+    tab: {
+      height: "10px",
     },
   }));
 
@@ -28,7 +32,7 @@ function BudgetTabs(props) {
         onChange={handleChange}
         value={selectedTab}
       >
-        <Tab label="Bills" />
+        <Tab className={classes.tab} label="Bills" />
         <Tab label="Expenses" />
         <Tab label="Everything Else" />
       </Tabs>

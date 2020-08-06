@@ -18,7 +18,7 @@ function BudgetTotals(props) {
     },
   }));
 
-  props.data.map((item) => {
+  props.data.forEach((item) => {
     total += parseInt(item.fields.amount);
   });
 

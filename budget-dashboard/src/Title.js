@@ -1,5 +1,4 @@
 import React from "react";
-import PieChartIcon from "@material-ui/icons/PieChart";
 
 function Title() {
   return (

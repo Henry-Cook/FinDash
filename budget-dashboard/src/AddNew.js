@@ -40,6 +40,7 @@ function AddNew(props) {
                 onBlur={() => {
                   props.blur();
                 }}
+                required={true}
               />
             );
           })}

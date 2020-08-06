@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { Paper, Tabs, Tab, Container } from "@material-ui/core";
+import React, { useState } from "react";
+import { Tabs, Tab } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 function BudgetTabs(props) {
   const [selectedTab, setSelectedTab] = useState(0);
-  const matches = useMediaQuery("(max-width:850px)");
 
   const handleChange = (event, newValue) => {
     setSelectedTab(newValue);

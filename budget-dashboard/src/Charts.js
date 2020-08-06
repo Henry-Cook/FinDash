@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { Doughnut } from "react-chartjs-2";
@@ -14,7 +14,7 @@ function Charts(props) {
     let labels = [];
     let cost = [];
 
-    props.bills.map((item) => {
+    props.bills.forEach((item) => {
       labels.push(item.fields.name);
       cost.push(parseInt(item.fields.amount));
     });
@@ -57,7 +57,7 @@ function Charts(props) {
     let labels = [];
     let cost = [];
 
-    props.expenses.map((item) => {
+    props.expenses.forEach((item) => {
       labels.push(item.fields.name);
       cost.push(parseInt(item.fields.amount));
     });
@@ -100,7 +100,7 @@ function Charts(props) {
     let labels = [];
     let cost = [];
 
-    props.everythingElse.map((item) => {
+    props.everythingElse.forEach((item) => {
       labels.push(item.fields.name);
       cost.push(parseInt(item.fields.amount));
     });

@@ -67,6 +67,7 @@ function BudgetManager(props) {
       typedIn: e.target.value,
       category: index,
     };
+    console.log(changeObj);
   };
 
   const handleBlur = () => {
@@ -121,30 +122,39 @@ function BudgetManager(props) {
   const dataForAddNew = () => {
     if (selectedTab === 0) {
       return (
-        <AddNew
-          data={billsNames}
-          getData={dataFromAddNew}
-          handle={handleChange}
-          blur={handleBlur}
-        />
+        <>
+          <AddNew
+            data={billsNames}
+            getData={dataFromAddNew}
+            handle={handleChange}
+            blur={handleBlur}
+          />
+          {(arrForInput = [])}
+        </>
       );
     } else if (selectedTab === 1) {
       return (
-        <AddNew
-          data={expensesNames}
-          getData={dataFromAddNew}
-          handle={handleChange}
-          blur={handleBlur}
-        />
+        <>
+          <AddNew
+            data={expensesNames}
+            getData={dataFromAddNew}
+            handle={handleChange}
+            blur={handleBlur}
+          />
+          {(arrForInput = [])}
+        </>
       );
     } else {
       return (
-        <AddNew
-          data={everyThingElseNames}
-          getData={dataFromAddNew}
-          handle={handleChange}
-          blur={handleBlur}
-        />
+        <>
+          <AddNew
+            data={everyThingElseNames}
+            getData={dataFromAddNew}
+            handle={handleChange}
+            blur={handleBlur}
+          />
+          {(arrForInput = [])}
+        </>
       );
     }
   };

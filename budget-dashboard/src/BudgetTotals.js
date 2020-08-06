@@ -14,6 +14,7 @@ function BudgetTotals(props) {
     },
     text: {
       margin: matches === true ? "10px" : "20px",
+      color: "#68d388",
     },
   }));
 
@@ -26,7 +27,7 @@ function BudgetTotals(props) {
   return (
     <>
       <Paper className={classes.paper} elevation={2}>
-        <h5 className={classes.text}> Total: ${total}</h5>
+        <h4 className={classes.text}> Total: ${total}</h4>
       </Paper>
     </>
   );

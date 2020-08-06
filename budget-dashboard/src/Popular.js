@@ -18,6 +18,7 @@ function Popular() {
     title: {
       fontSize: "20spx",
       margin: "0 0 10px 0",
+      color: "#68d388",
     },
     text: {
       fontSize: "15px",

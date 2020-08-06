@@ -102,7 +102,13 @@ function App() {
           </Route>
 
           <Route path="/settings">
-            <h1>Settings</h1>
+            <div className="settings">
+              <img
+                src="https://media.giphy.com/media/Wn74RUT0vjnoU98Hnt/giphy.gif"
+                alt=""
+                srcset=""
+              />
+            </div>
           </Route>
         </Container>
       </div>

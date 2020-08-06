@@ -57,6 +57,7 @@ function MarketWatch() {
     button: {
       width: "10%",
       marginTop: "20px",
+      backgroundColor: "#ffb766",
     },
     formStyles: {
       display: "flex",

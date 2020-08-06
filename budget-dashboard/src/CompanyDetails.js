@@ -17,6 +17,7 @@ function CompanyDetails(props) {
     },
     title: {
       margin: 0,
+      color: "#68d388",
     },
     text: {
       margin: 0,

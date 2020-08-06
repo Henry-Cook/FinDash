@@ -14,6 +14,7 @@ function AddNew(props) {
       width: "100%",
       borderTopRightRadius: "0%",
       borderTopLeftRadius: "0%",
+      backgroundColor: "#68d388",
     },
     inputs: {
       margin: "0 5px 0 5px",
@@ -43,12 +44,7 @@ function AddNew(props) {
             );
           })}
         </div>
-        <Button
-          className={classes.button}
-          variant="contained"
-          color="primary"
-          type="submit"
-        >
+        <Button className={classes.button} variant="contained" type="submit">
           Add
         </Button>
       </form>

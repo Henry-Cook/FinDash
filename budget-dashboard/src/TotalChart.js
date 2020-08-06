@@ -43,11 +43,11 @@ function TotalChart(props) {
           label: "Total",
           data: [billTotal, expensesTotal, everythingElseTotal],
           backgroundColor: [
-            "#8bf0ba",
-            "#0e0fed",
-            "#94f0f1",
-            "#f2b1d8",
+            "#68d388",
+            "#ffb766",
+            "#c2edda",
             "#ffdc6a",
+            "#a797f2",
           ],
         },
       ],
@@ -55,7 +55,7 @@ function TotalChart(props) {
     options: {
       title: {
         display: true,
-        text: "Total",
+        text: `Total : $${billTotal + expensesTotal + everythingElseTotal}`,
         fontSize: 25,
       },
       legend: {

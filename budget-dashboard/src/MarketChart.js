@@ -18,13 +18,9 @@ function MarketChart(props) {
         {
           label: "Total",
           data: [previousClose, open, high, low, current],
-          backgroundColor: [
-            "#8bf0ba",
-            "#0e0fed",
-            "#94f0f1",
-            "#f2b1d8",
-            "#ffdc6a",
-          ],
+          backgroundColor: ["#ffb766"],
+          pointBackgroundColor: "#68d388",
+          pointRadius: 4,
         },
       ],
     },

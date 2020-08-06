@@ -28,7 +28,7 @@ function BudgetTabs(props) {
       <Tabs
         className={classes.tabs}
         variant="fullWidth"
-        indicatorColor="primary"
+        TabIndicatorProps={{ style: { background: "#68d388" } }}
         onChange={handleChange}
         value={selectedTab}
       >

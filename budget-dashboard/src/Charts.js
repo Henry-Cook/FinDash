@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "./App";
 import { Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { Doughnut } from "react-chartjs-2";
@@ -6,6 +7,7 @@ import TotalChart from "./TotalChart";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 function Charts(props) {
+  const themes = useContext(ThemeContext);
   const matches = useMediaQuery("(max-width:850px)");
 
   let propHolder = props;
@@ -33,6 +35,7 @@ function Charts(props) {
               "#ffdc6a",
               "#a797f2",
             ],
+            borderColor: themes === true ? "#393e46" : "#fff",
           },
         ],
       },
@@ -41,12 +44,13 @@ function Charts(props) {
           display: true,
           text: "Bills",
           fontSize: 25,
+          fontColor: themes === true ? "#fff" : "#666",
         },
         legend: {
           display: true,
           position: "bottom",
           labels: {
-            fontColor: "#000000",
+            fontColor: themes === true ? "#fff" : "#666",
           },
         },
       },
@@ -76,6 +80,7 @@ function Charts(props) {
               "#ffdc6a",
               "#a797f2",
             ],
+            borderColor: themes === true ? "#393e46" : "#fff",
           },
         ],
       },
@@ -84,12 +89,13 @@ function Charts(props) {
           display: true,
           text: "Expenses",
           fontSize: 25,
+          fontColor: themes === true ? "#fff" : "#666",
         },
         legend: {
           display: true,
           position: "bottom",
           labels: {
-            fontColor: "#000000",
+            fontColor: themes === true ? "#fff" : "#666",
           },
         },
       },
@@ -119,6 +125,7 @@ function Charts(props) {
               "#ffdc6a",
               "#a797f2",
             ],
+            borderColor: themes === true ? "#393e46" : "#fff",
           },
         ],
       },
@@ -127,12 +134,13 @@ function Charts(props) {
           display: true,
           text: "EveryThing Else",
           fontSize: 25,
+          fontColor: themes === true ? "#fff" : "#666",
         },
         legend: {
           display: true,
           position: "bottom",
           labels: {
-            fontColor: "#000000",
+            fontColor: themes === true ? "#fff" : "#666",
           },
         },
       },
@@ -160,7 +168,7 @@ function Charts(props) {
       display: "flex",
       flexDirection: matches === true ? "row" : "column",
       width: matches === true ? "90%" : "30%",
-      // height: "90%",
+      backgroundColor: themes === true ? "#393e46" : "#fff",
       justifyContent: "center",
       alignItems: "center",
       margin: matches === true ? "0 auto" : "20px 20px 20px 20px",

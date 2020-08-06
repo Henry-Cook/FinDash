@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "./App";
 import { Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 function BudgetTotals(props) {
+  const themes = useContext(ThemeContext);
   const matches = useMediaQuery("(max-width:850px)");
   let total = 0;
   const useStyles = makeStyles((theme) => ({
@@ -11,6 +13,8 @@ function BudgetTotals(props) {
       textAlign: "center",
       width: "95%",
       margin: "10px auto",
+      backgroundColor: themes === true ? "#393e46" : "#FFFF",
+      border: themes === true ? "solid 1px #222831" : "none",
     },
     text: {
       margin: matches === true ? "10px" : "20px",

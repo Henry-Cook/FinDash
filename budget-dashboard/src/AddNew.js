@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "./App";
 import TextField from "@material-ui/core/TextField";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, withTheme } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 
 function AddNew(props) {
+  const themes = useContext(ThemeContext);
+
   const useStyles = makeStyles((theme) => ({
     newForm: {
       display: "flex",
@@ -16,8 +19,9 @@ function AddNew(props) {
       borderTopLeftRadius: "0%",
       backgroundColor: "#68d388",
     },
-    inputs: {
+    root: {
       margin: "0 5px 0 5px",
+      color: themes === true ? "#fff" : "#000 ",
     },
   }));
 
@@ -29,8 +33,9 @@ function AddNew(props) {
           {props.data.map((item) => {
             return (
               <TextField
-                align="center"
-                className={classes.inputs}
+                InputProps={{
+                  className: classes.root,
+                }}
                 key={item}
                 id="standard-basic"
                 label={item}

@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { ThemeContext } from "./App";
 import { Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import BudgetTabs from "./BudgetTabs";
@@ -10,6 +11,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 const _ = require("lodash");
 
 function BudgetManager(props) {
+  const themes = useContext(ThemeContext);
   const [bills, setBills] = useState([]);
   const [expenses, setExpenses] = useState([]);
   const [everythingElse, setEverythingElse] = useState([]);
@@ -32,6 +34,7 @@ function BudgetManager(props) {
       textAlign: "center",
       marginTop: nextPoint === true ? "100px" : "20px",
       marginLeft: matches === true ? "0" : "20px",
+      backgroundColor: themes === true ? "#393e46" : "#FFFFFF",
     },
     tabs: {
       display: "flex",

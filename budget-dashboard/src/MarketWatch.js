@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { ThemeContext } from "./App";
 import Popular from "./Popular";
 import MarketChart from "./MarketChart";
 import { Paper, Button } from "@material-ui/core";
@@ -10,6 +11,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 const _ = require("lodash");
 
 function MarketWatch() {
+  const theme = useContext(ThemeContext);
   const [userInput, setUserInput] = useState("");
   const [search, setSearch] = useState("AAPL");
   const [stockPrice, setStockPrice] = useState({});
@@ -110,6 +112,7 @@ function MarketWatch() {
             </>
           )}
         </div>
+        {console.log(theme)}
         {!_.isEmpty(stockPrice) &&
           !_.isEmpty(companyData) &&
           matches === false && <MarketChart data={stockPrice} />}

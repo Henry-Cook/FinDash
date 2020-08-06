@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "./App";
 import { Doughnut } from "react-chartjs-2";
 import { makeStyles } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
@@ -8,6 +9,7 @@ function TotalChart(props) {
   let expensesTotal = 0;
   let everythingElseTotal = 0;
   const matches = useMediaQuery("(max-width:850px)");
+  const themes = useContext(ThemeContext);
 
   props.data.bills.map((item) => {
     billTotal += parseInt(item.fields.amount);
@@ -49,6 +51,7 @@ function TotalChart(props) {
             "#ffdc6a",
             "#a797f2",
           ],
+          borderColor: themes === true ? "#393e46" : "#fff",
         },
       ],
     },
@@ -57,12 +60,13 @@ function TotalChart(props) {
         display: true,
         text: `Total : $${billTotal + expensesTotal + everythingElseTotal}`,
         fontSize: 25,
+        fontColor: themes === true ? "#fff" : "#666",
       },
       legend: {
         display: true,
         position: "bottom",
         labels: {
-          fontColor: "#000000",
+          fontColor: themes === true ? "#fff" : "#666",
         },
       },
     },

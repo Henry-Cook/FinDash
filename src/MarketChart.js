@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "./App";
 import { Line } from "react-chartjs-2";
 import { makeStyles } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 function MarketChart(props) {
+  const themes = useContext(ThemeContext);
   let previousClose = props.data.data.pc;
   let open = props.data.data.o;
   let high = props.data.data.h;
@@ -25,17 +27,10 @@ function MarketChart(props) {
       ],
     },
     options: {
-      title: {
-        display: false,
-        text: "Total",
-        fontSize: 25,
-      },
       legend: {
         display: false,
         position: "bottom",
-        labels: {
-          fontColor: "#000000",
-        },
+        labels: {},
       },
     },
   };

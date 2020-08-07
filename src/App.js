@@ -43,7 +43,7 @@ function App() {
       margin: "0",
       paddingLeft: "0",
       paddingRight: "0",
-      backgroundColor: themes === true ? "#222831" : "#fff",
+      backgroundColor: themes === true ? "#222831" : " ",
     },
     tabs: {
       display: "flex",
@@ -58,6 +58,7 @@ function App() {
     <>
       <ThemeContext.Provider value={themes}>
         <div className="total-container">
+          <div className="under-nav"></div>
           <Navbar />
           <Container className={classes.root} maxWidth="xl">
             {nextPoint === false && (

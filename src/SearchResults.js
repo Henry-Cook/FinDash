@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { ThemeContext } from "./App";
 import CompanyDetails from "./CompanyDetails";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -12,6 +13,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 const _ = require("lodash");
 
 function SearchResults(props) {
+  const themes = useContext(ThemeContext);
   const [prices, setPrices] = useState({});
   const matches = useMediaQuery("(max-width:850px)");
   const nextPoint = useMediaQuery("(max-width:500px)");
@@ -29,6 +31,8 @@ function SearchResults(props) {
       alignItem: "center",
       textAlign: "center",
       marginRight: "20px",
+      backgroundColor: themes === true ? "#393e46" : "#FFFFFF",
+      border: themes === true ? "solid 1px #222831" : "none",
     },
     table: {
       display: "flex",
@@ -41,6 +45,9 @@ function SearchResults(props) {
       display: "flex",
       flexDirection: "row",
       height: "20px",
+    },
+    cell: {
+      color: themes === true ? "#FFFF" : "#393e46",
     },
   }));
 
@@ -55,18 +62,30 @@ function SearchResults(props) {
             <TableRow>
               {nextPoint === false && (
                 <>
-                  <TableCell align="center">Current</TableCell>
-                  <TableCell align="center">High</TableCell>
-                  <TableCell align="center">Low</TableCell>
-                  <TableCell align="center">Open</TableCell>
+                  <TableCell className={classes.cell} align="center">
+                    Current
+                  </TableCell>
+                  <TableCell className={classes.cell} align="center">
+                    High
+                  </TableCell>
+                  <TableCell className={classes.cell} align="center">
+                    Low
+                  </TableCell>
+                  <TableCell className={classes.cell} align="center">
+                    Open
+                  </TableCell>
                   {thirdPoint === false && (
-                    <TableCell align="center">Previous Close</TableCell>
+                    <TableCell className={classes.cell} align="center">
+                      Previous Close
+                    </TableCell>
                   )}
                 </>
               )}
               {nextPoint === true && (
                 <>
-                  <TableCell align="center">Current Price</TableCell>
+                  <TableCell className={classes.cell} align="center">
+                    Current Price
+                  </TableCell>
                 </>
               )}
             </TableRow>
@@ -77,18 +96,30 @@ function SearchResults(props) {
                   <>
                     {nextPoint === false && (
                       <>
-                        <TableCell align="center">${prices.c}</TableCell>
-                        <TableCell align="center">${prices.h}</TableCell>
-                        <TableCell align="center">${prices.l}</TableCell>
-                        <TableCell align="center">${prices.o}</TableCell>
+                        <TableCell className={classes.cell} align="center">
+                          ${prices.c}
+                        </TableCell>
+                        <TableCell className={classes.cell} align="center">
+                          ${prices.h}
+                        </TableCell>
+                        <TableCell className={classes.cell} align="center">
+                          ${prices.l}
+                        </TableCell>
+                        <TableCell className={classes.cell} align="center">
+                          ${prices.o}
+                        </TableCell>
                         {thirdPoint === false && (
-                          <TableCell align="center">${prices.pc}</TableCell>
+                          <TableCell className={classes.cell} align="center">
+                            ${prices.pc}
+                          </TableCell>
                         )}
                       </>
                     )}
                     {nextPoint === true && (
                       <>
-                        <TableCell align="center">${prices.c}</TableCell>
+                        <TableCell className={classes.cell} align="center">
+                          ${prices.c}
+                        </TableCell>
                       </>
                     )}
                   </>

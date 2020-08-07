@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "./App";
 import { makeStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
 
 function CompanyDetails(props) {
+  const themes = useContext(ThemeContext);
   const useStyles = makeStyles((theme) => ({
     divContainer: {
       display: "flex",
@@ -21,6 +23,7 @@ function CompanyDetails(props) {
     },
     text: {
       margin: 0,
+      color: themes === true ? "#FFFF" : "#393e46",
     },
   }));
 

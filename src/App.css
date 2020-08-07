@@ -35,19 +35,19 @@ body {
   flex-direction: row;
   justify-content: flex-end;
   height: 10vh;
-  background-color: white;
+  /* background-color: white; */
   border-bottom: 1px solid rgb(214, 211, 211);
 }
 
 .title {
   position: absolute;
   left: 20px;
-  font-family: 'Recursive', sans-serif;
+  font-family: "Recursive", sans-serif;
   color: #68d388;
 }
 
 .settings {
-  height: 100%;
+  height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -73,7 +73,7 @@ body {
 
 .links {
   text-decoration: none;
-  color: #ffb766
+  color: #ffb766;
 }
 
 .myLinks {
@@ -83,7 +83,7 @@ body {
 
 @media (max-width: 1025px) {
   .nav-bar-wrapper {
-    width: 10%
+    width: 10%;
   }
 }
 
@@ -114,5 +114,9 @@ body {
     justify-content: center;
     width: 100vw;
     height: 5vh;
+    z-index: 2;
+  }
+  .main-section {
+    height: 100vh;
   }
 }

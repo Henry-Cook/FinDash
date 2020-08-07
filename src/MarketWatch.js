@@ -11,7 +11,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 const _ = require("lodash");
 
 function MarketWatch() {
-  const theme = useContext(ThemeContext);
+  const themes = useContext(ThemeContext);
   const [userInput, setUserInput] = useState("");
   const [search, setSearch] = useState("AAPL");
   const [stockPrice, setStockPrice] = useState({});
@@ -48,8 +48,9 @@ function MarketWatch() {
       flexDirection: "column",
       width: "95%",
       alignItems: "center",
-      margin: nextPoint === true ? "100px auto" : "20px auto",
+      margin: nextPoint === true ? "60px auto" : "20px auto",
       paddingBottom: "5px",
+      backgroundColor: themes === true ? "#393e46" : "#FFFFFF",
     },
     input: {
       width: "30%",
@@ -112,7 +113,6 @@ function MarketWatch() {
             </>
           )}
         </div>
-        {console.log(theme)}
         {!_.isEmpty(stockPrice) &&
           !_.isEmpty(companyData) &&
           matches === false && <MarketChart data={stockPrice} />}

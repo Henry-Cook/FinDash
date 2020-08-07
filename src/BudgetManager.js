@@ -29,12 +29,13 @@ function BudgetManager(props) {
       display: "flex",
       flexDirection: "column",
       width: matches === true ? "95%" : "70%",
-      height: "100%",
+
       alignItem: "center",
       textAlign: "center",
-      marginTop: nextPoint === true ? "100px" : "20px",
+      marginTop: nextPoint === true ? "60px" : "20px",
       marginLeft: matches === true ? "0" : "20px",
       backgroundColor: themes === true ? "#393e46" : "#FFFFFF",
+      marginBottom: themes === true ? "100px" : "0",
     },
     tabs: {
       display: "flex",

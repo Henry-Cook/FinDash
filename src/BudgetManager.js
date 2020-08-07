@@ -29,7 +29,7 @@ function BudgetManager(props) {
       display: "flex",
       flexDirection: "column",
       width: matches === true ? "95%" : "70%",
-
+      height: "100%",
       alignItem: "center",
       textAlign: "center",
       marginTop: nextPoint === true ? "60px" : "20px",

@@ -29,7 +29,7 @@ function TotalChart(props) {
   const useStyles = makeStyles((theme) => ({
     chartContainer: {
       width: "30%",
-      width: matches === true ? "40%" : "80%",
+      width: matches === true ? "40%" : "70%",
       justifyContent: "center",
       alignItems: "center",
       marginTop: 0,

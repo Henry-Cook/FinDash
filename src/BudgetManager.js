@@ -71,7 +71,6 @@ function BudgetManager(props) {
       typedIn: e.target.value,
       category: index,
     };
-    console.log(changeObj);
   };
 
   const handleBlur = () => {
@@ -79,7 +78,6 @@ function BudgetManager(props) {
       arrForInput.push(changeObj);
     }
     changeObj = {};
-    console.log(arrForInput);
   };
 
   const dataFromAddNew = async (e) => {

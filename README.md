@@ -1,4 +1,4 @@
-# Budget Dashboard
+# [Findash](https://quizzical-kirch-53c1ec.netlify.app/)
 
 ## Project Description
 

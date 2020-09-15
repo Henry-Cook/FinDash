@@ -2,7 +2,7 @@
 
 ## Project Description
 
-Findash is a finacial dashboard built in [React](https://reactjs.org/) that uses [Airtable](https://airtable.com/) for a basic database connection. The point of this application was to create a good looking dashboard that is responsive at all breakpoints. There are two main sections of the app, Budget Manager and Market Watch. The first allows users to create a budget focusing on three main catogories: "Bills", "Expenses", and "Everything Else". The Market Watch section let's users look up the preformance of their favorite stocks. Currently you can only use the companies symbol to look up their information. The app will then use [react-chartjs-2 ](https://www.npmjs.com/package/react-chartjs-2) to render graphs so that users can visualize their budget, and stock information.
+Findash is a financial dashboard built in [React](https://reactjs.org/) that uses [Airtable](https://airtable.com/) for a basic database connection. The point of this application was to create a good looking dashboard that is responsive at all breakpoints. There are two main sections of the app, Budget Manager and Market Watch. The first allows users to create a budget focusing on three main catogories: "Bills", "Expenses", and "Everything Else". The Market Watch section let's users look up the preformance of their favorite stocks. Currently you can only use the companies symbol to look up their information. The app will then use [react-chartjs-2 ](https://www.npmjs.com/package/react-chartjs-2) to render graphs so that users can visualize their budget, and stock information.
 
 The focus of this project is to use React to create a beautiful dashboard.
 
